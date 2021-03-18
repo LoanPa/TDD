@@ -1,0 +1,11 @@
+- a fer
++ fet
+x wip
+
++ Call function get_score
+- When game starts return "love-all"
+- When player 1 wins 2 points return "Fifteen-love"
+- When player 1 wins 3 points return "Thirty-love"
+- When player 1 wins 4 points return "Win for Player One"
+- When player 1 wins and  Player 2 wins return "fifteen-all"
+- When player 1 wins and  Player 2 wins, and Player 1 return "fifteen-all"
