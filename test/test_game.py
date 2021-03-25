@@ -98,19 +98,28 @@ def test_whenPlayer1twoPointsandPlayer2zeroPoints_thenThirtyLove(setup, teardown
 
     game.player_wins("Toni", 2)
     result = game.get_score()
-    print(result)
     # ASSERT
     assert result == "Thirty-Love"
 
-def test_whenPlayer1forPointsandPlayer2zeroPoints_thenWinForPlayerOne(setup, teardown):
+def test_whenPlayer1fourPointsandPlayer2zeroPoints_thenWinForPlayerOne(setup, teardown):
     # ARRANGE
     game = setup
     # ACT
     game.player_wins("Toni", 4)
     result = game.get_score()
-    print(result)
     # ASSERT
     assert result == "Win for Player One"
+
+def test_whenPlayer1threePointsandPlayer2fourPoints_thenA0dvantageplayer2(setup, teardown):
+    # ARRANGE
+    game = setup
+    # ACT
+    game.player_wins("Toni", 3)
+    game.player_wins("Carla", 4)
+    result = game.get_score()
+    # ASSERT
+    assert result == "Advantage player2"
+
 ##################### File 2 #####################
     """
     def create_game(player1: Player, player2: Player):
