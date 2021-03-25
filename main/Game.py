@@ -15,46 +15,49 @@ class Game:
         
     def get_score(self):
         result = ""
-        if self._player1_points == 0:
-            result = "Love-"
-        if self._player1_points == 1:
-            result = "Fifteen-"
-        if self._player1_points == 2:
-            result = "Thirty-"
-        if self._player2_points == 3:
-            result = "Forty-"
-        if self._player1_points == self._player2_points:
-            result += "All"
+
+        if self._player1_points >= 4 or self._player2_points >= 4:  # Algun dels dos es mes de 4
+            if self._player1_points > self._player2_points:  # p1 te avantatge o guanya
+                if (self._player2_points + 1) < self._player1_points:  # p1 guanya
+                    result = "Win for Player One"
+                else:
+                    result = "Advantage Player One"
+            elif self._player1_points < self._player2_points:
+                if (self._player1_points + 1) < self._player2_points:
+                    result = "Win for Player Two"
+                else:
+                    result = "Advantage Player Two"
+            else:
+                result = "Deuce"
+            return result
         else:
-            if self._player2_points == 0:
-                result += "Love"
-            if self._player2_points == 1:
-                result += "Fifteen"
-            if self._player2_points == 2:
-                result += "Thirty"
-            if self._player2_points == 3:
-                result += "Forty"
 
-            if self._player1_points == 4 and self._player2_points == 0:
-                return "Win for Player One"
-            if self._player1_points == 3 and self._player2_points == 4:
-                return "Advantage player2"
+            if self._player2_points >= 4 and self._player1_points < (self._player2_points + 2):
+                result += "Win for Player Two"
+            else:
+                if self._player1_points == 0:
+                    result = "Love-"
+                if self._player1_points == 1:
+                    result = "Fifteen-"
+                if self._player1_points == 2:
+                    result = "Thirty-"
+                if self._player1_points == 3:
+                    result = "Forty-"
+                if self._player1_points == self._player2_points:
+                    if self._player2_points == 3:
+                        return "Deuce"
+                    else:
+                        result += "All"
+
+                else:
+                    if self._player2_points == 0:
+                        result += "Love"
+                    if self._player2_points == 1:
+                        result += "Fifteen"
+                    if self._player2_points == 2:
+                        result += "Thirty"
+                    if self._player2_points == 3:
+                        result += "Forty"
         return result
-""""
-        if self._player1_points == 1 and self._player2_points == 1:
-            return "Fifteen-All"
-        if self._player1_points == 1:
-            return "Fifteen-Love"
-        if self._player2_points == 1:
-            return "Love-Fifteen"
-        if self._player1_points == 2:
-            return "Thirty-Love"
-        if self._player1_points == 4 and self._player2_points == 0:
-            return "Win for Player One"
-        if self._player1_points == 3 and self._player2_points == 4:
-            return "Advantage player2"
-        return "Love-All"
-    """
-
 
 

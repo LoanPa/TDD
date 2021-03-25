@@ -118,7 +118,18 @@ def test_whenPlayer1threePointsandPlayer2fourPoints_thenA0dvantageplayer2(setup,
     game.player_wins("Carla", 4)
     result = game.get_score()
     # ASSERT
-    assert result == "Advantage player2"
+    assert result == "Advantage Player Two"
+
+# TEST MANUAL (SERVEIX PER A QUALSEVOL CAS)
+def test_FuncioPolivalent(setup, teardown):
+    # ARRANGE
+    game = setup
+    # ACT
+    game.player_wins("Toni", 15)
+    game.player_wins("Carla", 14)
+    result = game.get_score()
+    # ASSERT
+    assert result == "Advantage Player One"
 
 ##################### File 2 #####################
     """
