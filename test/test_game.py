@@ -65,7 +65,7 @@ def test_whenPlayer1onePoint_thenFifteenLove(setup, teardown):
     # ARRANGE
     game = setup
     # ACT
-    game.player_wins("Toni")
+    game.player_wins("Toni", 1)
     result = game.get_score()
     # ASSERT
     assert result == "Fifteen-Love"
@@ -75,7 +75,7 @@ def test_whenPlayer2onePoint_thenFifteenLove(setup, teardown):
     # ARRANGE
     game = setup
     # ACT
-    game.player_wins("Carla")
+    game.player_wins("Carla", 1)
     result = game.get_score()
     # ASSERT
     assert result == "Love-Fifteen"
@@ -85,8 +85,8 @@ def test_whenPlayer1onePointandPlayer2onePoint_thenFifteenAll(setup, teardown):
     # ARRANGE
     game = setup
     # ACT
-    game.player_wins("Carla")
-    game.player_wins("Toni")
+    game.player_wins("Carla", 1)
+    game.player_wins("Toni", 1)
     result = game.get_score()
     # ASSERT
     assert result == "Fifteen-All"
@@ -96,14 +96,21 @@ def test_whenPlayer1twoPointsandPlayer2zeroPoints_thenThirtyLove(setup, teardown
     game = setup
     # ACT
 
-    game.player_wins("Toni")
-    game.player_wins("Toni")
+    game.player_wins("Toni", 2)
     result = game.get_score()
     print(result)
     # ASSERT
     assert result == "Thirty-Love"
 
-
+def test_whenPlayer1forPointsandPlayer2zeroPoints_thenWinForPlayerOne(setup, teardown):
+    # ARRANGE
+    game = setup
+    # ACT
+    game.player_wins("Toni", 4)
+    result = game.get_score()
+    print(result)
+    # ASSERT
+    assert result == "Win for Player One"
 ##################### File 2 #####################
     """
     def create_game(player1: Player, player2: Player):
