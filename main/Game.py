@@ -20,5 +20,7 @@ class Game:
             return "Fifteen-Love"
         if self._player2_points == 1:
             return "Love-Fifteen"
+        if self._player1_points == 2:
+            return "Thirty-Love"
         return "Love-All"
 

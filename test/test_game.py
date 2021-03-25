@@ -91,15 +91,17 @@ def test_whenPlayer1onePointandPlayer2onePoint_thenFifteenAll(setup, teardown):
     # ASSERT
     assert result == "Fifteen-All"
 
- def test_whenPlayer2onePointandPlayer2onePoint_thenFifteenAll(setup, teardown):
-        # ARRANGE
-        game = setup
-        # ACT
-        game.player_wins("Carla")
-        game.player_wins("Toni")
-        result = game.get_score()
-        # ASSERT
-        assert result == "Fifteen-All"
+def test_whenPlayer1twoPointsandPlayer2zeroPoints_thenThirtyLove(setup, teardown):
+    # ARRANGE
+    game = setup
+    # ACT
+
+    game.player_wins("Toni")
+    game.player_wins("Toni")
+    result = game.get_score()
+    print(result)
+    # ASSERT
+    assert result == "Thirty-Love"
 
 
 ##################### File 2 #####################

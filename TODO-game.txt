@@ -10,7 +10,7 @@ x wip
 + When player 1 wins 1 points return "Fifteen-love"
 + When player 1 wins and Player 2 wins return "Fifteen-all"
 
-- When player 1 wins 3 points return "Thirty-love"
++ When player 1 wins 3 points return "Thirty-love"
 
 - When player 1 wins 4 points return "Win for Player One"
 
